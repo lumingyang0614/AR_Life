@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>AR Life</title>
+		<meta charset="utf-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		<!-- font -->
+		<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+
+  		<!-- firebase -->
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+		<!-- js of this page -->
+		<script src="./js/homepage.js"></script>
+
+		<!-- css of this page -->
+  		<link rel="stylesheet" href="./css/homepage.css" />
+
+  		<!-- pwa manifest and iphone's setting -->
+		<link rel="apple-touch-icon" sizes="57x57" href="./icons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./icons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./icons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./icons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./icons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./icons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./icons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./icons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#a9d6e5">
+		<meta name="msapplication-TileImage" content="./icons/ms-icon-144x144.png">
+		<meta name="theme-color" content="#a9d6e5">
+	</head>
+
+	<body>
+		<div class="content">
+
+		<div class="profile">
+
+			<div class="profile_picture">
+				<img src="icons/apple-icon.png" width="200px" height="200px">
+			<!-- end profile_picture div -->
+			</div>
+
+			<div class="profile_info">
+				<p id="profile_username">name</p>
+				<p id="profile_userinfo">info</p>
+			<!-- end profile_info div -->
+			</div>
+
+		<!-- end profile div -->
+		</div>
+
+		<hr style="border:1px solid #1C1C1C; margin-top: 20px;"/>
+
+		<div class="menu">
+			<button onclick="">Scan</button>
+			<button onclick="">Favorites</button>
+			<button onclick="location.href='upload.html'">Upload</button>
+			<button onclick="logout()" id="logout">Log Out</button>
+		<!-- end menu div -->
+		</div>
+
+		<!-- pwa's service worker -->
+		<script>
+		if ('serviceWorker' in navigator) {
+			console.log("Will service worker register?");
+			navigator.serviceWorker.register('/js/sw.js').then(function(reg){console.log("Yes it did.");}).catch(function(err){console.log("No it didn't. This happened: ", err)});
+		}
+		</script>
+
+		<!-- end content div -->
+		</div>
+	</body>
+
+</html>

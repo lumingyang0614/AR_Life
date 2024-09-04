@@ -1,0 +1,100 @@
+body {
+  text-align: center;
+  background: #a9d6e5;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'RocknRoll One', sans-serif;
+  font-size: 16px;
+}
+
+input, button {
+  font-family: 'RocknRoll One', sans-serif;
+  font-weight: 700;
+}
+
+button {
+  background: #89c2d9;
+  color: #fff;
+  border: 2px solid #89c2d9; 
+  border-radius: 5px; 
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+button:hover {
+  background: #fff;
+  color: #89c2d9;
+  border: 2px solid #89c2d9;
+  cursor: pointer;
+}
+
+.content {
+  display: inline-block;
+  vertical-align: top;
+  background-color: white; 
+  border-radius: 10px;
+  width: 500px;
+  height: 80%;
+  margin: 20px;
+  padding: 30px;
+  box-shadow:5px 5px 0px #1C1C1C;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  background-color: #F2F2F2;
+  width: 100%;
+  height: 200px;
+}
+
+.profile_picture {
+  background-color: gray;
+  width: 200px;
+  height: 200px;
+}
+
+.profile_info{
+  flex-grow: 1;
+  padding-left: 20px;
+  height: 100%;
+  text-align: left;
+}
+
+#profile_username {
+  margin: 10px;
+  padding: 0px;
+  font-size: 24px;
+  font-weight: 1000;
+}
+
+#profile_userinfo {
+  margin: 10px;
+  padding: 0px;
+  color: #505050;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.menu {
+}
+
+.menu button {
+  font-size: 22px;
+}
+
+@media (max-width:1000px) {
+  .content {
+    width: 70%;
+  }
+}
+
+@media (max-width:600px) {
+  .content {
+    width: 80%;
+  }
+}

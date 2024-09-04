@@ -1,0 +1,8 @@
+{
+  "name": "AR Life",
+  "theme_color": "#a9d6e5",
+  "background_color": "#a9d6e5",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "start_url": "/signup.html"
+}

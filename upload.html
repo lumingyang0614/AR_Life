@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>AR Life</title>
+		<meta charset="utf-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		<!-- font -->
+		<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+
+  		<!-- firebase -->
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+
+		<!-- css of this page -->
+		<link rel="stylesheet" href="./css/upload.css" />
+
+	</head>
+
+	<body>	
+		<h1 style="margin-top: 10px; font-size: 36px;">AR Life</h1>
+
+		<div class="content_div">
+
+			<div id="step1" style="display:block;">
+				<h2>Upload</h2>
+				<h3>STEP 1 - create a new project</h3>
+				<input type="text" placeholder="ProjectName" id="projectname"maxlength="20" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\_\(\)\@\.\u4E00-\u9FA5]/g,'')">
+				<p>(要按按鈕 有限制特殊字元)</p><br>
+
+				<button class="bt_1" onclick="go_step2();">next</button>
+			<!-- end step1 -->
+			</div>
+
+			<div id="step2" style="display:none">
+				<h2>Upload</h2>
+				<h3>STEP 2 - place a pic for ar-scanning</h3>
+				<img id="prepic" alt="your image" width="100" height="100" />
+				<input type="file" accept="image/*" onchange="document.getElementById('prepic').src = window.URL.createObjectURL(this.files[0])" id="ar_pic"><br><br>
+
+
+				<button class="bt_2" onclick="go_step1();">back</button>
+				<button class="bt_2" onclick="go_step3()">next</button>
+			<!-- end step2 -->
+			</div>
+
+			<div id="step3" style="display:none">
+				<h2>Upload</h2>
+				<h3>STEP 3 - select files or typing text to upload</h3>
+				<input type="text" placeholder="type here" id="text_input" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\_\(\)\@\.\u4E00-\u9FA5]/g,'')">
+				<button class="bt_3" onclick="send()" id="sendtext">Send Text</button>
+				<p>(要按按鈕 有限制特殊字元)</p>
+
+				<hr width="80%" size="2" color="#1C1C1C" style="FILTER: alpha(opacity=100,finishopacity=0,style=1)"><br>
+
+				<input type="file" value="upload" id="uploadBtn" multiple="true" accept="image/*,.mp4,.glb,.txt"><br><br>
+				<progress value="0" max="100" id="uploader">0%</progress>
+				<div id="msg"></div>
+				<br></br>
+
+				<button class="bt_2" onclick="go_step2();">back</button>
+				<button class="bt_2" onclick="go_preview()">preview</button>
+			<!-- end step3 -->
+			</div>
+
+			<div id="preview" style="display:none">
+				<h2>Preview</h2> 
+				<button onclick="renew()">renew</button>
+				<div style="width: 100%; text-align: left;">
+					<ul>
+						<li id="list">
+					</ul>
+				</div><br><br>
+
+				<button class="bt_2" onclick="go_step3();">back</button>
+				<button class="bt_2" onclick="saveData()">confirm</button>
+			<!-- end preview -->
+			</div>
+
+			<!-- progress bar -->
+			<progress value="0" max="100" id="upload_bar"></progress>
+
+		<!-- end content div -->
+		</div>
+
+		<!-- pwa's service worker -->
+		<script>
+		if ('serviceWorker' in navigator) {
+			console.log("Will service worker register?");
+			navigator.serviceWorker.register('/js/sw.js').then(function(reg){console.log("Yes it did.");}).catch(function(err){console.log("No it didn't. This happened: ", err)});
+		}
+		</script>
+
+		<!-- js of this page -->
+		<script src="./js/upload.js"></script>
+		
+	</body>
+
+</html>
